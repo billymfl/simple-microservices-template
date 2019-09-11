@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: handlers</title>
+    <title>JSDoc: Source: Singleton.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,130 +17,38 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: handlers</h1>
+    <h1 class="page-title">Source: Singleton.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * A class to represent a Singleton
+ * @class
+ *
+ * @property prop1 desc
+ * @property prop2 desc
+ */
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Defines handlers for the routes</div>
-        
+/**
+  * Singleton class
+  */
+class Singleton {
+  /** Singleton contructor
+   * @constructor
+    */
+  constructor() {
+  }
+}
 
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="handlers.js.html">handlers.js</a>, <a href="handlers.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = new Singleton();
+</code></pre>
+        </article>
+    </section>
 
 
 
