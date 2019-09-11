@@ -2,3 +2,4 @@ node_modules
 logs
 keys/local*
 .env
+.nyc_output

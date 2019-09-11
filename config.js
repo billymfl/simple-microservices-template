@@ -14,15 +14,14 @@ const Joi = require('@hapi/joi');
 exports.NODE_ENV = process.env.NODE_ENV || 'development';
 exports.APPNAME = pkg.name;
 exports.VERSION = pkg.version;
+
 // debug is only active if DEBUG=appname is passed in
 exports.debug = require('debug')(exports.APPNAME);
 
 // define the schema of the environment variables
 const schema = Joi.object().keys({
-  // Port to listen on
   PORT: Joi.number().integer().min(80).max(65535).default(80),
-  // Host name, defaults to binding to docker container
-  HOST: Joi.string().uri().default('0.0.0.0'),
+  HOST: Joi.string().hostname().default('0.0.0.0'),
 });
 
 // if there is a validation error set _error, else assign env vars. usually we should exit on error.

@@ -10,3 +10,4 @@ Dockerfile
 .git
 docs
 .DS_Store
+.nyc_output
