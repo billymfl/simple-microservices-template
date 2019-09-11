@@ -1,28 +1,20 @@
 /**
  *  @fileOverview Entrypoint for simple-microservice-template, following the 12 factor app
- *  design methodology. dotenv is used to load environment variables from .env file into
- *  process.env. The .env file should not be committed to a repo as it might contain secrets.
- *  The testing library are mocha and chai.
- *  Linting with eslint configured with the google style.
+ *  design methodology.
  *
  *  @author       Billy Marin
  *
  *  @requires     NPM:dotenv
  *  @requires     NPM:@hapi/hapi
-
- * move these
- *  @requires     NPM:chai
- *  @requires     NPM:chai-http
- *  @requires     NPM:eslint
- *  @requires     NPM:eslint-config-google
- *  @requires     NPM:mocha
-
  *
  */
 
 require('dotenv').config();
 const Hapi = require('@hapi/hapi');
-
+const HapiSwagger = require('hapi-swagger');
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
+const routes = require('../modules/routes');
 // load the config
 const {NODE_ENV, APPNAME, VERSION, PORT, HOST, _error} = require('../config');
 
@@ -35,14 +27,26 @@ if (_error !== undefined) {
 console.log(`${APPNAME} ${VERSION} is starting in ${NODE_ENV} mode...`);
 const server = new Hapi.Server({port: PORT, host: HOST});
 
+// build swagger doc, at GET /documentation
+const swaggerOptions = {
+  info: {
+    title: 'API Documentation',
+    version: VERSION,
+    description: 'Microservice template',
+  },
+  schemes: ['http', 'https'], // http for testing
+  reuseDefinitions: false,
+};
+
 const init = async () => {
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: (request, h) => {
-      return `${APPNAME} ${VERSION}`;
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions,
     },
-  });
+  ]);
 
   // when requiring this file for testing the server shouldn't be started
   if (!module.parent) {
@@ -53,6 +57,7 @@ const init = async () => {
     }
     console.log('Server running on %s', server.info.uri);
   }
+  server.route(routes);
 };
 
 process.on('unhandledRejection', (err) => {
@@ -62,5 +67,5 @@ process.on('unhandledRejection', (err) => {
 
 init();
 
-// for testing
+// for testing the server
 module.exports = server;

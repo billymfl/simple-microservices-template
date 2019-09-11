@@ -3,8 +3,11 @@
 # Name of the project
 > Additional information or tagline
 
-A brief description of billymfl project, what it is used for and how does life get
-awesome when someone starts to use it.
+Microservices template for quick prototyping and rapid application development.
+
+* dotenv is used to load environment variables from .env file into process.env. The .env file should not be committed to a repo as it might contain secrets.
+ *  The testing library are mocha and chai.
+ *  Linting with eslint configured with the google style.
 
 ## Installing / Getting started
 
