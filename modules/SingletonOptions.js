@@ -2,12 +2,11 @@
  * A class to represent a Singleton with options
  * @class
  *
- * @property prop1 desc
- * @property prop2 desc
+ * @property instance the instance of the class
  */
 
-
 let instance;
+
 /**
   * SingletonOptions class
   */

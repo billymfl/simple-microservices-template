@@ -62,8 +62,9 @@ const init = async () => {
   // other init...
 };
 
-process.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', async (err) => {
   console.error(`unhandledRejection: ${err}`);
+  await server.stop();
   process.exit(1);
 });
 

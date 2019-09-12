@@ -4,7 +4,7 @@
   "description": "App description",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test HOST=mockhost.com PORT=88 nyc ./node_modules/mocha/bin/mocha --exit",
+    "test": "NODE_ENV=test HOST=0.0.0.0 PORT=88 nyc ./node_modules/mocha/bin/mocha --exit",
     "start": "node server"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "@hapi/hapi": "^18.3.2",
     "@hapi/inert": "^5.2.1",
     "@hapi/vision": "^5.5.3",
+    "axios": "^0.19.0",
     "debug": "^4.1.1",
     "dotenv": "^8.1.0",
     "hapi-swagger": "^10.1.1"

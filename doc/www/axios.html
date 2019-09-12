@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: SingletonOptions</title>
+    <title>JSDoc: Class: axios</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: SingletonOptions</h1>
+    <h1 class="page-title">Class: axios</h1>
 
     
 
@@ -28,9 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>SingletonOptions<span class="signature">(options)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description">SingletonOptions class</div>
+        <h2><span class="attribs"><span class="type-signature"></span></span>axios<span class="signature">()</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,11 +39,9 @@
         
 
     
-    <h2>Constructor</h2>
-    
 
     
-    <h4 class="name" id="SingletonOptions"><span class="type-signature"></span>new SingletonOptions<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="axios"><span class="type-signature"></span>new axios<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -53,7 +49,8 @@
 
 
 <div class="description">
-    Singleton contructor
+    A class to represent the Circuit breaker pattern. To use pass a request object
+to callService()
 </div>
 
 
@@ -64,10 +61,15 @@
 
 
 
-    <h5>Parameters:</h5>
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
     
 
-<table class="params">
+<table class="props">
     <thead>
     <tr>
         
@@ -89,15 +91,10 @@
 
         <tr>
             
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>states</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
             
             </td>
 
@@ -105,14 +102,66 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">object to store the state of each request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>failureThreshold</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">int number of failed requests before setting open circuit</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cooldownPeriod</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">int seconds to wait until trying request after circuit opened</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>requestTimeout</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">int time in seconds before a request is deemed as failed</td>
         </tr>
 
     
     </tbody>
 </table>
-
-
 
 
 
@@ -146,7 +195,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="SingletonOptions.js.html">SingletonOptions.js</a>, <a href="SingletonOptions.js.html#line13">line 13</a>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line12">line 12</a>
     </li></ul></dd>
     
 

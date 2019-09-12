@@ -142,7 +142,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line18">line 18</a>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -297,7 +297,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line34">line 34</a>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line78">line 78</a>
     </li></ul></dd>
     
 
@@ -324,7 +324,8 @@
 
         
 <div class="param-desc">
-    response.data or false if failed or can't make request
+    object containing { statusCode, data } or false if failed or
+ can't make request
 </div>
 
 
@@ -356,7 +357,7 @@
     
 
     
-    <h4 class="name" id="canRequest"><span class="type-signature"></span>canRequest<span class="signature">(endpoint)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="getCooldownPeriod"><span class="type-signature"></span>getCooldownPeriod<span class="signature">()</span><span class="type-signature"> &rarr; {int}</span></h4>
     
 
     
@@ -364,7 +365,7 @@
 
 
 <div class="description">
-    canRequest checks to see if the endpoint's state allows for requests
+    getCooldownPeriod how many seconds before trying a failed endpoint
 </div>
 
 
@@ -373,55 +374,6 @@
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>endpoint</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -457,7 +409,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line75">line 75</a>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line48">line 48</a>
     </li></ul></dd>
     
 
@@ -484,7 +436,7 @@
 
         
 <div class="param-desc">
-    true if circuit is closed or half open, false otherwise
+    seconds representing the cooldown period
 </div>
 
 
@@ -495,7 +447,7 @@
     </dt>
     <dd>
         
-<span class="param-type">boolean</span>
+<span class="param-type">int</span>
 
 
     </dd>
@@ -513,7 +465,7 @@
     
 
     
-    <h4 class="name" id="initState"><span class="type-signature"></span>initState<span class="signature">(endpoint)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getFailureThreshold"><span class="type-signature"></span>getFailureThreshold<span class="signature">()</span><span class="type-signature"> &rarr; {int}</span></h4>
     
 
     
@@ -521,7 +473,223 @@
 
 
 <div class="description">
-    initState for the endpoint
+    getFailureThreshold how many failed tries before an endpoint is set to failed
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    number representing the failure threshold
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">int</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getRequestTimeout"><span class="type-signature"></span>getRequestTimeout<span class="signature">()</span><span class="type-signature"> &rarr; {int}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    getRequestTimeout seconds to wait before timing out a request
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    the request timeout
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">int</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setCooldownPeriod"><span class="type-signature"></span>setCooldownPeriod<span class="signature">(cooldownPeriod)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    setCooldownPeriod sets cool down period before a failed endpoint is tried again
 </div>
 
 
@@ -557,13 +725,13 @@
 
         <tr>
             
-                <td class="name"><code>endpoint</code></td>
+                <td class="name"><code>cooldownPeriod</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -573,7 +741,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">the new value (in seconds)</td>
         </tr>
 
     
@@ -614,7 +782,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line90">line 90</a>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -648,7 +816,7 @@
     
 
     
-    <h4 class="name" id="onFailure"><span class="type-signature"></span>onFailure<span class="signature">(endpoint)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setFailureThreshold"><span class="type-signature"></span>setFailureThreshold<span class="signature">(failureThreshold)</span><span class="type-signature"></span></h4>
     
 
     
@@ -656,7 +824,7 @@
 
 
 <div class="description">
-    onFailure sets errors states for a failed request to the endpoint
+    setFailureThreshold sets a new failure threshold
 </div>
 
 
@@ -692,13 +860,13 @@
 
         <tr>
             
-                <td class="name"><code>endpoint</code></td>
+                <td class="name"><code>failureThreshold</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -708,7 +876,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">the new value</td>
         </tr>
 
     
@@ -749,7 +917,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line61">line 61</a>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line41">line 41</a>
     </li></ul></dd>
     
 
@@ -783,7 +951,7 @@
     
 
     
-    <h4 class="name" id="onSuccess"><span class="type-signature"></span>onSuccess<span class="signature">(endpoint)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setRequestTimeout"><span class="type-signature"></span>setRequestTimeout<span class="signature">(requestTimeout)</span><span class="type-signature"></span></h4>
     
 
     
@@ -791,7 +959,7 @@
 
 
 <div class="description">
-    onSuccess resets an endpoint to initial values
+    setRequestTimeout sets a new request time out
 </div>
 
 
@@ -827,13 +995,13 @@
 
         <tr>
             
-                <td class="name"><code>endpoint</code></td>
+                <td class="name"><code>requestTimeout</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">int</span>
 
 
             
@@ -843,7 +1011,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">the new value (in seconds)</td>
         </tr>
 
     
@@ -884,7 +1052,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line54">line 54</a>
+        <a href="CircuitBreaker.js.html">CircuitBreaker.js</a>, <a href="CircuitBreaker.js.html#line69">line 69</a>
     </li></ul></dd>
     
 
@@ -928,13 +1096,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-handlers.html">handlers</a></li><li><a href="module-routes.html">routes</a></li></ul><h3>Classes</h3><ul><li><a href="CircuitBreaker.html">CircuitBreaker</a></li><li><a href="instance.html">instance</a></li><li><a href="Singleton.html">Singleton</a></li><li><a href="SingletonOptions.html">SingletonOptions</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-handlers.html">handlers</a></li><li><a href="module-routes.html">routes</a></li></ul><h3>Classes</h3><ul><li><a href="axios.html">axios</a></li><li><a href="CircuitBreaker.html">CircuitBreaker</a></li><li><a href="instance.html">instance</a></li><li><a href="Singleton.html">Singleton</a></li><li><a href="SingletonOptions.html">SingletonOptions</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Sep 11 2019 11:54:12 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Sep 12 2019 11:20:09 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

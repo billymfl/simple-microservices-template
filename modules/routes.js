@@ -9,20 +9,30 @@ const Joi = require('@hapi/joi');
 const handlers = require('./handlers');
 
 const routes = [
-  {
+  {// default root route
     method: 'GET',
     path: '/',
     options: {
       handler: handlers.default,
-      description: 'Default route',
+      description: 'Default route. Returns appname and version',
+      tags: ['api'],
     },
   },
-  {
+  {// healthcheck route
     method: 'GET',
     path: '/healthcheck',
     options: {
       handler: handlers.healthCheck,
-      description: 'ordinary health check route',
+      description: 'Ordinary health check route',
+      tags: ['api'],
+    },
+  },
+  {// a private route for testing the circuit breaker
+    method: 'POST',
+    path: '/mock-test-circuitbreaker-failover',
+    options: {
+      handler: handlers.testCircuitBreaker,
+      description: 'Route used for testing the circuitbreaker by test suite',
       tags: ['api'],
     },
   },

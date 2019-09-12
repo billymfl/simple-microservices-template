@@ -15,6 +15,14 @@ module.exports = {
     return {status: 'ok'};
   },
 
+  testCircuitBreaker: async (request, h) => {
+    const sleep = (ms) => {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    };
+    await sleep(2000);
+    return {status: 'ok'};
+  },
+
   hello: (request, h) =>{
     return `Hello ${request.params.name}!`;
   },

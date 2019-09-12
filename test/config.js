@@ -22,7 +22,7 @@ describe('config', function() {
   });
 
   it('HOST value should be set', function() {
-    assert.equal(HOST, 'mockhost.com');
+    assert.equal(HOST, '0.0.0.0');
   });
 
   it('PORT value should be set', function() {
