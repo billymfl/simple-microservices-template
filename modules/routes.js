@@ -33,7 +33,6 @@ const routes = [
     options: {
       handler: handlers.testCircuitBreaker,
       description: 'Route used for testing the circuitbreaker by test suite',
-      tags: ['api'],
     },
   },
   {// sample GET route showing input param and validation on it
