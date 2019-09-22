@@ -9,7 +9,6 @@
  *
  */
 
-require('dotenv').config();
 const Hapi = require('@hapi/hapi');
 const HapiSwagger = require('hapi-swagger');
 const Inert = require('@hapi/inert');

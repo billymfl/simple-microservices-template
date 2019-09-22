@@ -4,7 +4,7 @@
   "description": "App description",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test HOST=0.0.0.0 PORT=88 nyc ./node_modules/mocha/bin/mocha --exit",
+    "test": "./mocha-test.sh",
     "start": "node server"
   },
   "repository": {

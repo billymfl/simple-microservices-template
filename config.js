@@ -8,6 +8,10 @@
  *
  */
 
+const env = require('dotenv').config();
+if (env.error) {
+  throw env.error;
+}
 const pkg = require('./package');
 const Joi = require('@hapi/joi');
 
