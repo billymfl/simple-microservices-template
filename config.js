@@ -8,10 +8,17 @@
  *
  */
 
-const env = require('dotenv').config();
-if (env.error) {
-  throw env.error;
+const dotEnvConfig = {};
+if (process.env.NODE_ENV === 'test') {
+  const path = require('path');
+  dotEnvConfig.path = path.resolve(process.cwd(), 'test/.env');
 }
+
+const env = require('dotenv').config(dotEnvConfig);
+if (env.error) {
+  console.error('No .env file found or error trying to parse it.');
+}
+
 const pkg = require('./package');
 const Joi = require('@hapi/joi');
 
